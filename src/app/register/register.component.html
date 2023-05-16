@@ -1,0 +1,71 @@
+<form class="w-75 m-auto py-5" [formGroup]="registerForm" (ngSubmit)="submitRegisterForm()">  
+    <div class="form-group my-2">
+        <label>Name</label>
+        <input 
+            formControlName="name"
+            name="name" 
+            type="text" 
+            class="form-control">
+        <div *ngIf="registerForm.get('name')?.invalid && registerForm.get('name')?.touched" class="text-danger">
+            <p class="py-2 text-danger">name required</p>
+        </div>     
+            
+
+    </div>
+    <div class="form-group my-2">
+        <label>Email</label>
+        <input  
+            formControlName="email"
+            name="userEmail" 
+            type="email" 
+            class="form-control">
+        <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">      
+            <p *ngIf="registerForm.get('email')?.errors?.['required']" class="py-2 text-danger">email required</p>
+            <p *ngIf="registerForm.get('email')?.errors?.['pattern']" class="py-2 text-danger">email invalid</p>
+        </div>
+    </div>
+    <div class="form-group my-2">
+        <label>User Name</label>
+        <input  
+            formControlName="username"
+            name="username" 
+            type="text" 
+            class="form-control">
+        <div *ngIf="registerForm.get('username')?.invalid && registerForm.get('username')?.touched">      
+            <p *ngIf="registerForm.get('username')?.errors?.['required']" class="py-2 text-danger">user name required</p>
+            <p *ngIf="registerForm.get('username')?.errors?.['pattern']" class="py-2 text-danger">name should contain no spaces</p>
+        </div>
+    </div>
+    <div class="form-group my-2">
+        <label>Password</label>
+        <input 
+            formControlName="password"  
+            name="userPassword" 
+            type="password" 
+            class="form-control">
+        <div *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">      
+            <p *ngIf="registerForm.get('password')?.errors?.['required']" class="py-2 text-danger">password required</p>
+            <p *ngIf="registerForm.get('password')?.errors?.['pattern']" class="py-2 text-danger">password length not less
+                than 8 characters , contains at least one
+                lowercase , one uppercase , at least one digit
+                and special character</p>
+        </div>
+    </div>
+    <div class="form-group my-2">
+        <label>Confirm Password</label>
+        <input 
+            formControlName="confirmPassword"
+            name="confirmPassword" 
+            type="password" 
+            class="form-control">
+        <div *ngIf="registerForm.get('confirmPassword')?.invalid && registerForm.get('confirmPassword')?.touched">      
+            <p *ngIf="registerForm.get('confirmPassword')?.errors?.['passwordMismatch']" class="py-2 text-danger">password not matched</p>
+        </div>
+    </div>
+    <button [disabled]="registerForm.invalid"  type="submit" class="btn btn-primary text-white my-2" >Register</button>
+</form>
+
+<div class="container w-75 text-center">
+    <span>Already have account! </span><a routerLink="/login">login</a>
+</div>
+

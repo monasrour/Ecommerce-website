@@ -1,0 +1,12 @@
+<div  class="card">
+    <img [src]="product.thumbnail" class="card-img-top h-300" routerLink="product-detail/{{product.id}}" >
+    <div class="card-body">
+      <h5 class="card-title">{{product.title}}</h5>
+      <p class="card-text">{{product.description}}</p>
+      <p [ngStyle]="{'color':product.stock>0 ?'green' : 'red'}" class="card-text">{{product.stock |stock}}</p>
+      <a  routerLink="product-detail/{{product.id}}" class="btn btn-primary">showDetails</a>
+      <small class="text-muted">{{product.createdAt | date}}</small>
+
+
+    </div>
+  </div>
