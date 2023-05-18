@@ -1,0 +1,20 @@
+<table class="table text-white w-75 mx-auto mt-5">
+    <thead>
+      <tr>
+        <th scope="col">Product</th>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">remove</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let prod of products">
+        <td><img [src]="prod.thumbnail" alt=""></td>
+        <td>{{prod.title}}</td>
+        <td>{{prod.price*prod.count}}</td>
+        <td><button (click)="decreese(prod.id)" class="btn btn-primary mx-2">-</button> {{prod.count}} <button (click)="increese(prod.id)" class="btn btn-success mx-2">+</button></td>
+        <td><button (click)="removeProduct(prod.id)" class="btn btn-danger">remove</button></td>
+      </tr>
+    </tbody>
+  </table>

@@ -1,27 +1,47 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ProctsListComponent } from './procts-list/procts-list.component';
+import { ProductsListComponent } from './products-list/products-list.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { LogoutComponent } from './logout/logout.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { CartComponent } from './cart/cart.component';
+import { authGuardGuard } from './guards/auth-guard.guard';
 
 const routes: Routes = [
   {
-    path: "",
-    component: ProctsListComponent
-  },{
-    path: "product-detail/:id",
-    component:ProductDetailComponent
+    path: '',
+    component: ProductsListComponent
   },
   {
-    path:"login",
-    component: LoginComponent
-  },{
-
-  path:"register",
-  component: RegisterComponent
-}
-
+    path: 'home', 
+    component: ProductsListComponent
+  },
+  {
+    path: 'product-detail/:id',
+    component: ProductDetailComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
+  },
+  {
+    path: 'logout',
+    component: LogoutComponent
+  },
+  {
+    path: 'cart',
+    component: CartComponent
+  },
+  {
+    path: '**',
+    component: NotFoundComponent
+  },
 ];
 
 @NgModule({

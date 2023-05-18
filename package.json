@@ -1,5 +1,5 @@
 {
-  "name": "products",
+  "name": "e-commerce",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -19,6 +19,10 @@
     "@angular/platform-browser-dynamic": "^16.0.0",
     "@angular/router": "^16.0.0",
     "bootstrap": "^5.2.3",
+    "bootstrap-icons": "^1.10.5",
+    "jquery": "^3.7.0",
+    "ngx-bootstrap": "^6.2.0",
+    "popper.js": "^1.16.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"

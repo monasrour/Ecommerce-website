@@ -1,4 +1,6 @@
-export interface Products {
+import { ArrayType } from "@angular/compiler";
+
+export interface Product {
     id: number,
     title: string,
     description: string,
@@ -9,8 +11,6 @@ export interface Products {
     brand: string,
     category: string,
     thumbnail: string,
-    images: string[
-      
-    ],
-    createdAt?:string,
+    images: string[],
+    createdAt:string
 }

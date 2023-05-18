@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class StockPipe implements PipeTransform {
 
   transform(value: number, ...args: unknown[]): string {
-    return (value>0)?"in stock": "out of stock"
+    return value > 0 ? "In Stock" : "Out Of Stock";
   }
 
 }

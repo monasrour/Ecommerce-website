@@ -1,12 +1,16 @@
-<div  class="card">
-    <img [src]="product.thumbnail" class="card-img-top h-300" routerLink="product-detail/{{product.id}}" >
+<div class="card card-border">
+    <img [src]="product.thumbnail"  class="card-img-top" alt="..." routerLink="/product-detail/{{product.id}}">
     <div class="card-body">
-      <h5 class="card-title">{{product.title}}</h5>
-      <p class="card-text">{{product.description}}</p>
-      <p [ngStyle]="{'color':product.stock>0 ?'green' : 'red'}" class="card-text">{{product.stock |stock}}</p>
-      <a  routerLink="product-detail/{{product.id}}" class="btn btn-primary">showDetails</a>
-      <small class="text-muted">{{product.createdAt | date}}</small>
-
-
+    <h4 class="card-title cl">{{product.title}}</h4>
+    <p class="card-text">{{product.description}}</p>
+    <p class="card-text">Price : {{product.price | currency}}</p>
+    <p class="card-text">Discount : {{product.discountPercentage}}%</p>
+    <p class="card-text" [ngStyle]="{'color': product.stock > 0 ? 'green' : 'red'}">{{product.stock | stock}}</p>
     </div>
-  </div>
+    <div class="card-footer">
+    <a (click)="redirectToProduct(product.id)" class="btn btn-primary ">Details</a>
+    <a (click)="addToCart(product.id)" class="btn btn-mine mx-2 text-white">Add To Cart</a>
+    <small class="text-muted">{{product.createdAt | date}}</small>
+    </div>
+    <div class="vote">{{product.rating}}</div>
+</div>    

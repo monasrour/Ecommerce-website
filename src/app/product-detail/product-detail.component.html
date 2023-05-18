@@ -1,11 +1,36 @@
-<div class="card">
-    <img [src]="product.thumbnail" class="card-img-top h-300" >
-    <div class="card-body">
-      <h5 class="card-title">{{product.title}}</h5>
-      <p class="card-text">{{product.description}}</p>
-      <p class="card-text">{{product.brand}}</p>
-      <!-- <p class="card-text">{{product.description}}</p> -->
-
-
+<div class="row my-5">
+    <div class="col-md-4">
+      <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img [src]="product.thumbnail" class="d-block w-100 " alt="..." height="500px">
+          </div>
+          <div class="carousel-item" *ngFor="let img of product.images">
+            <img [src]="img" class="d-block w-100" alt="..." height="500px">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
     </div>
-  </div>
+
+    <div class="col-md-8 ">
+        <h2 class="card-title text-danger mt-3">{{product.title}}</h2>
+        <h6 class="card-text mb-3">{{product.description}}</h6>
+        <p class="card-text my-1">Price : {{ product.price}}</p>
+        <p class="card-text my-1">Discount : {{product.discountPercentage}}%</p>
+        <p class="card-text my-1">category : {{ product.category}}</p>
+        <p class="card-text my-1">brand : {{ product.brand}}</p>
+        <p class="card-text" [ngStyle]="{'color': product.stock > 0 ? 'green' : 'red'}">{{product.stock | stock}}</p>
+    </div>
+
+
+    
+
+</div>
